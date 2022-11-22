@@ -22,12 +22,13 @@ a {
  width: 100%;
 }
 
-.navbar-container{
+.navbar-container {
   display: flex;
   justify-content: space-between;
   margin: 6px 18px;
   position: relative;
 }
+
 .marquee-text{
   font-size: 29px;
   font-weight: 600;
@@ -66,6 +67,7 @@ a {
 
 }
 .cart-icon{
+
   font-size: 25px;
   color: gray;
   cursor: pointer;
@@ -90,7 +92,7 @@ a {
   font-weight: 600;
 
 }
-.products-container{
+.products-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -98,7 +100,7 @@ a {
   margin-top: 20px;
   width: 100%;
 }
-.product-card{
+.product-card {
   border: 1px solid rgb(137, 137, 137);
   padding: 30px;
   display: flex;
@@ -352,8 +354,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0
 .product-container{
   margin-top: 15px;
   overflow: auto;
-max-height: 70vh;
-padding: 20px 10px;
+  max-height: 70vh;
+  padding: 20px 10px;
 }
 .product{
   display: flex;
@@ -430,27 +432,22 @@ padding: 30px 65px;
   transform: scale(1.1,1.1);
 }
 .product-detail-container{
+  border: 1px solid rgb(167, 167, 167);
+  padding: 30px;
+  width: 100%;
   display: flex;
- gap: 40px;
- margin: 40px;
- margin-top: 60px;
- color: #324d67;
-
+  justify-content: space-evenly;
 }
 
 .product-detail-image{
   border-radius: 15px;
-   background-color: #ebebeb;
-
+  margin-right: 20px;
   width: 400px;
   height: 400px;
   cursor: pointer;
   transition: .3s ease-in-out;
 }
-.product-detail-image:hover{
-  background-color: #f02d34;
 
-}
 .small-images-container{
   display: flex;
   gap: 10px;
@@ -465,7 +462,7 @@ padding: 30px 65px;
 }
 
 .selected-image{
-  background-color:#f02d34;
+  background-color: rgba(0, 0, 0, 0.5)
 }
 .reviews{
   color: #f02d34;
@@ -538,9 +535,10 @@ padding: 30px 65px;
 .buttons .buy-now:hover{
   transform:scale(1.1,1.1)
 }
+
 .quantity-desc{
   border: 1px solid gray;
-padding: 6px;
+  padding: 5px;
 }
 .quantity-desc span{
   font-size: 16px;

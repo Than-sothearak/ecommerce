@@ -74,7 +74,11 @@ export default {
         name: 'battery',
         title: 'Battery',
         type: 'string',
-    }
+    },{
+        name: 'countInStock',
+        title: 'CountInStock',
+        type: 'number',
+      },
     ]
        
     

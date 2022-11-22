@@ -1,4 +1,4 @@
-import { title } from "process";
+
 
 export default {
     name: 'product',
