@@ -1,3 +1,5 @@
+import { title } from "process";
+
 export default {
     name: 'product',
     title: 'Product',
@@ -14,6 +16,12 @@ export default {
     { name: 'name',
       title: 'Name',
       type: 'string',
+
+    },
+    { name: 'brand',
+      title: 'Brand',
+      type: 'string',
+
     },
     {
         name: 'slug',
@@ -22,7 +30,7 @@ export default {
         option: {
             source: 'name',
             maxLength: 90,
-        }
+        },
     },
     {
         name: 'price',

@@ -17,7 +17,7 @@ const ProductDetails = ({ products: { image, name, details, price }, products}) 
 }
 
 export const getStaticPaths = async () => {
-    const query = `*[_type == "product"] {
+    const query = `*[_type == "laptop"] {
       slug {
         current
       }
@@ -41,8 +41,8 @@ export const getStaticPaths = async () => {
 
 export async function getStaticProps({ params: { slug }}) {
 
-    const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-    const productQuery = '*[_type == "product"]';
+    const query = `*[_type == "laptop" && slug.current == '${slug}'][0]`;
+    const productQuery = '*[_type == "laptop"]';
     
     const products = await client.fetch(query);
     const product = await client.fetch(productQuery);
