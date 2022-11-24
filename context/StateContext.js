@@ -17,7 +17,8 @@ export const StateContext = ({ children }) => {
       const checkProductInCart = cartItems.find((item) => item._id === product._id)
          setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
          setTotalQty((prevTotalQty) => prevTotalQty + quantity);
-      if(checkProductInCart) {
+      
+         if(checkProductInCart) {
         const updateCartItems = cartItems.map((cartProduct) => {
           if (cartProduct._id === product._id) return {
             ...cartProduct,
@@ -35,12 +36,20 @@ export const StateContext = ({ children }) => {
     
     }
     
+    const onRemove = (product) => {
+      foundProduct = cartItems.find((item) => item._id === product._id);
+      const newCartItems = cartItems.filter((item) => item._id !== product._id);
+
+      setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price * foundProduct.quantity);
+      setTotalQty((prevTotalQty) => prevTotalQty - foundProduct.quantity);
+      setCartItems(newCartItems);
+    }
     
     const toggleCartItemQuanitity = (id, value) => {
       foundProduct = cartItems.find((item) => item._id === id)
       index = cartItems.findIndex((product) => product._id === id);
       const newCartItems = cartItems.filter((item) => item._id !== id)
-      
+  
       if(value === 'inc') {
         newCartItems.splice(index, 0, {...foundProduct, quantity: foundProduct.quantity + 1});
         setCartItems(newCartItems);
@@ -82,6 +91,7 @@ export const StateContext = ({ children }) => {
                 decQty,
                 onAdd,
                 toggleCartItemQuanitity,
+                onRemove
               
               }}
             >

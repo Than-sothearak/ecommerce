@@ -8,7 +8,7 @@ import { urlFor } from '../lib/client';
 
 const Cart = () => {
 const cartRef = useRef();
-const { totalPrice,  totalQty, cartItems, setShowCart, toggleCartItemQuanitity } = useStateContext();
+const { totalPrice,  totalQty, cartItems, setShowCart, toggleCartItemQuanitity, onRemove } = useStateContext();
 
   return (
     <div className='cart-wrapper' ref={cartRef}>
@@ -31,24 +31,24 @@ const { totalPrice,  totalQty, cartItems, setShowCart, toggleCartItemQuanitity }
         )}
 
         <div className='product-container'>
-          {cartItems.length >= 1 && cartItems.map((item) => (
-             <div className='product' key={item._id}>
-              <img src={urlFor(item?.image[0])}
+          {cartItems.length >= 1 && cartItems.map((product) => (
+             <div className='product' key={product._id}>
+              <img src={urlFor(product?.image[0])}
               className='cart-product-image'/>
               <div className='item-desc'>
                 <div className='flex top'>
-                <h5>{item.brand}</h5>
-                <h4>${item.price.toLocaleString('en', { maximumFractionDigits: 0 })}</h4>
+                <h5>{product.brand}</h5>
+                <h4>${product.price.toLocaleString('en', { maximumFractionDigits: 0 })}</h4>
                 </div>
                 <div className='flex bottom'>
                 <div>
                 <p className='quantity-desc'>
-                   <span className='minus' onClick={() => toggleCartItemQuanitity(item._id, 'dec')}><AiOutlineMinus /></span>
-                   <span className='num'>{item.quantity}</span>
-                   <span className='plus' onClick={() => toggleCartItemQuanitity(item._id, 'inc')}><AiOutlinePlus /></span>
+                   <span className='minus' onClick={() => toggleCartItemQuanitity(product._id, 'dec')}><AiOutlineMinus /></span>
+                   <span className='num'>{product.quantity}</span>
+                   <span className='plus' onClick={() => toggleCartItemQuanitity(product._id, 'inc')}><AiOutlinePlus /></span>
                    </p>
                 </div>
-                <button type='button' className='remove-item' onClick=''>
+                <button type='button' className='remove-item' onClick={() => onRemove(product)}>
                   <TiDeleteOutline />
                 </button>
               </div>
