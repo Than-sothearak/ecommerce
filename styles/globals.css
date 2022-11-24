@@ -372,17 +372,17 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0
   display: flex;
   justify-content: space-between;
   width: 350px;
-   color: #324d67;
+  color: #324d67;
 
 }
 .item-desc .bottom{
   margin-top: 60px;
 }
 .flex h5{
-  font-size: 24px;
+  font-size: 18px;
 }
 .flex h4{
-  font-size: 20px;
+  font-size: 24px;
 }
 .total{
   display: flex;
@@ -474,6 +474,9 @@ padding: 30px 65px;
 
 .product-detail-desc h4{
   margin-top: 10px;
+}
+.product-detail-desc ul {
+  margin-left: 30px;
 }
 .product-detail-desc p{
   margin-top: 10px;

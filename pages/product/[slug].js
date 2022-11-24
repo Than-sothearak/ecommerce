@@ -1,19 +1,14 @@
 import React, { useState } from 'react'
 import { client, urlFor } from '../../lib/client';
-import { AiOutlineMinus, AiFillStar, AiOutlineStar, AiOutlinePlus } from 'react-icons/Ai'
+import { AiOutlineMinus, AiFillStar, AiOutlineStar, AiOutlinePlus } from 'react-icons/ai'
 import { FooterBanner, Product } from '../../components';
+import { useStateContext } from '../../context/StateContext';
 
-const ProductDetails = ({ products: { image, brand, details, price }, product, bannerData}) => {
+const ProductDetails = ({ products, product, bannerData}) => {
   const [index, setIndex] = useState(0);
-  const [number, setNumber] = useState(0);
-  
-  const minusClicked = () => {
-    number > 0? setNumber(number - 1): number;
-  }
-
-  const plusClicked = () => {
-    setNumber(number + 1);
-  }
+  const { name, image, brand, cpu, ram, graphich, display, os, keyboard, battery, price } = products;
+  const { decQty, incQty, qty, onAdd, } = useStateContext();
+ 
   return (
     <div>
         <div className='product-detail-container'>
@@ -49,18 +44,28 @@ const ProductDetails = ({ products: { image, brand, details, price }, product, b
                           (20)
                         </p>
                         <h3>Details:</h3>
-                        <p>{details}</p>
-                        <p className='price'>${price}</p>
+                        <ul>
+                          <li>{`CPU: `}<span>{cpu}</span></li>
+                          <li>{`Ram: ${ram}`}</li>
+                          <li>{`GPU: ${graphich}`}</li>
+                          <li>{`Display: ${display}`}</li>
+                          <li>{`Os: ${os}`}</li>
+                          <li>{`Keyboard: ${keyboard}`}</li>
+                          <li>{`battery: ${battery}`}</li>
+                        </ul>
+                        <p className='price'>${price.toLocaleString('en', { maximumFractionDigits: 0 })}</p>
                         <div className='quantity'>
                           <h3>Quantity:</h3>
                           <p className='quantity-desc'>
-                            <span className='minus' onClick={minusClicked}><AiOutlineMinus /></span>
-                            <span className='num'>{number}</span>
-                            <span className='plus' onClick={plusClicked}><AiOutlinePlus /></span>
+
+                            <span className='minus' onClick={decQty}><AiOutlineMinus /></span>
+                            <span className='num'>{qty}</span>
+                            <span className='plus' onClick={incQty}><AiOutlinePlus /></span>
+
                           </p>
                         </div>
                         <div className='buttons'>
-                          <button type='button' className='add-to-cart' onClick=''>Add to Cart</button>
+                          <button type='button' className='add-to-cart' onClick={() => onAdd(products, qty)}>Add to Cart</button>
                           <button type='button' className='buy-now' onClick=''>Buy Now</button>
                         </div>
                       </div>
@@ -115,6 +120,7 @@ export async function getStaticProps({ params: { slug }}) {
     return {
       props: {products, product, bannerData}
     }
-  }
+  } 
+  
 
 export default ProductDetails
