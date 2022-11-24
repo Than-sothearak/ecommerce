@@ -5,6 +5,15 @@ import { FooterBanner, Product } from '../../components';
 
 const ProductDetails = ({ products: { image, brand, details, price }, product, bannerData}) => {
   const [index, setIndex] = useState(0);
+  const [number, setNumber] = useState(0);
+  
+  const minusClicked = () => {
+    number > 0? setNumber(number - 1): number;
+  }
+
+  const plusClicked = () => {
+    setNumber(number + 1);
+  }
   return (
     <div>
         <div className='product-detail-container'>
@@ -45,9 +54,9 @@ const ProductDetails = ({ products: { image, brand, details, price }, product, b
                         <div className='quantity'>
                           <h3>Quantity:</h3>
                           <p className='quantity-desc'>
-                            <span className='minus' onClick=''><AiOutlineMinus /></span>
-                            <span className='num'>0</span>
-                            <span className='plus' onClick=''><AiOutlinePlus /></span>
+                            <span className='minus' onClick={minusClicked}><AiOutlineMinus /></span>
+                            <span className='num'>{number}</span>
+                            <span className='plus' onClick={plusClicked}><AiOutlinePlus /></span>
                           </p>
                         </div>
                         <div className='buttons'>
