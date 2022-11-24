@@ -359,8 +359,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0
 }
 .product{
   display: flex;
- gap: 30px;
-  padding: 20px;
+  gap: 30px;
 }
 .product .cart-product-image{
   width:180px ;
