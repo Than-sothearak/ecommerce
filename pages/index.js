@@ -9,7 +9,6 @@ const Home = ({products, bannerData}) => (
         <h2>Tagline describing your e-shop</h2>
         <p>Speaker of many variations</p>
       </div>
-      <p>laptop</p>
       <div className='products-container'>
         
        {products?.map((productzz) => 
