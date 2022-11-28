@@ -7,14 +7,18 @@ const handler = nc();
 import bcrypt from 'bcryptjs';
 
 
+const succ =  async () => {
+    res.json({status: 'Done Success!'})
+}
 
-  
+
 export default handler.post(async (req, res) => {
     await dbConnect();
     const {email, password }= req.body
    
      const user = await User.findOne({email: email})
         if(user && bcrypt.compareSync(password, user.password)) {
+            const resToken = async () => {
                 const token = signToken(user);
                 res.send({
                     token,
@@ -22,7 +26,11 @@ export default handler.post(async (req, res) => {
                     email: user.email, 
                     password: user.password, 
                 });
-              
+                
+                }
+            await resToken(); 
+            await succ();
+            
         } else {
             res.json({status: 'Not be able to find'});
         }}

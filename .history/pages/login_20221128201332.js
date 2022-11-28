@@ -22,7 +22,7 @@ const login = () => {
  
   };
   return (
-    <form method='post' action='/api/login' className='form-container' >
+    <form onSubmit={submitHandler} action='/api/login' className='form-container' >
       <div className='login'>Login
       </div>
       <p></p>

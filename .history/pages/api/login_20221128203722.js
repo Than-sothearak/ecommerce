@@ -7,7 +7,11 @@ const handler = nc();
 import bcrypt from 'bcryptjs';
 
 
-
+let myPromise = () => {
+    return new Promise((resolve, reject) => {
+        resolve(({status: 'Done Success!'}))
+    });
+  }
   
 export default handler.post(async (req, res) => {
     await dbConnect();
@@ -22,7 +26,10 @@ export default handler.post(async (req, res) => {
                     email: user.email, 
                     password: user.password, 
                 });
+                const scc =  await myPromise();
+                res.json(scc);
               
+            
         } else {
             res.json({status: 'Not be able to find'});
         }}

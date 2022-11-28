@@ -8,7 +8,11 @@ import bcrypt from 'bcryptjs';
 
 
 
-  
+
+
+   
+
+
 export default handler.post(async (req, res) => {
     await dbConnect();
     const {email, password }= req.body
@@ -22,7 +26,9 @@ export default handler.post(async (req, res) => {
                     email: user.email, 
                     password: user.password, 
                 });
-              
+                res.json({status: 'Done Success!'});
+            
+            
         } else {
             res.json({status: 'Not be able to find'});
         }}

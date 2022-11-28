@@ -8,21 +8,32 @@ import bcrypt from 'bcryptjs';
 
 
 
-  
+
+let succ = () => {
+    return new Promise ((resolve, reject) => {
+      setTimeout(()=>{
+        resolve(res.json({status: 'Done Success!'}));
+      }, 1000);
+      reject(console.log('Err'))
+    });
+   }
+
 export default handler.post(async (req, res) => {
     await dbConnect();
     const {email, password }= req.body
    
      const user = await User.findOne({email: email})
         if(user && bcrypt.compareSync(password, user.password)) {
-                const token = signToken(user);
-                res.send({
-                    token,
-                    _id: user._id,
-                    email: user.email, 
-                    password: user.password, 
-                });
-              
+                // const token = signToken(user);
+                // res.send({
+                //     token,
+                //     _id: user._id,
+                //     email: user.email, 
+                //     password: user.password, 
+                // });
+                await succ();
+            
+            
         } else {
             res.json({status: 'Not be able to find'});
         }}
