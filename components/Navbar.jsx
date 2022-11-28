@@ -14,13 +14,11 @@ return (
     <div className='navbar-container'>
      <div className='logo'><p>
         <Link href='/'>My Store Headphone
-        </Link>
-        
-        
+        </Link> 
       </p>
       </div>
       <div className='cart'>
-      <Link href='/signIn'>Login</Link>
+      <Link href='/login'>Login</Link>
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
         <AiOutlineShopping />
         <span className='cart-item-qty'>{totalQty}</span>

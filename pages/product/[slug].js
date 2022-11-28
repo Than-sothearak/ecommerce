@@ -6,13 +6,13 @@ import { useStateContext } from '../../context/StateContext';
 
 const ProductDetails = ({ products, product, bannerData}) => {
   const [index, setIndex] = useState(0);
-  const { name, image, brand, cpu, ram, graphich, display, os, keyboard, battery, price } = products;
+  const { name, image, brand, cpu, ram, graphich, display, os, 
+          keyboard, battery, price } = products;
   const { decQty, incQty, qty, onAdd, } = useStateContext();
  
   return (
     <div>
         <div className='product-detail-container'>
-            
               <div className='image-container'>
                   <img src={urlFor(image && image[index])
                    } className='product-detail-image' />
@@ -27,8 +27,7 @@ const ProductDetails = ({ products, product, bannerData}) => {
             ))}
           </div>
               </div>
-                     
-                     <div className='product-detail-desc'>
+                  <div className='product-detail-desc'>
                       <h4>{brand}</h4>
                       <div className='reviews'>
                         <div>
