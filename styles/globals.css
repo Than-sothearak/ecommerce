@@ -229,8 +229,12 @@ text-align: end;
 .footer-banner-container{
   padding: 40px 40px;
   background: rgb(2,0,36);
-background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0,212,255,1) 100%);
-  border-radius: 15px;
+  background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+  border-radius: 15px;background-color: #0093E9;
+background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
   position: relative;
   height: 400px;
   line-height: 1; 
@@ -260,6 +264,7 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0
   z-index: 1;
   position: relative;
   margin-left: 25px;
+  text-shadow: 2px 2px #313131;
 }
 .banner-desc .left p{
   margin-left: 30px;
@@ -272,6 +277,8 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 0%, rgba(0
 }
 .banner-desc .right{
   line-height: 1.4;
+  z-index: 1;
+  text-shadow: 2px 2px #313131;
 }
 .banner-desc .right h3{
   font-weight: 800;

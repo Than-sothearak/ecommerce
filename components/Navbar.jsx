@@ -10,20 +10,26 @@ const Navbar = () => {
 const { totalQty, showCart,setShowCart } = useStateContext();
        
 return (
+  
     <div className='navbar-container'>
      <div className='logo'><p>
         <Link href='/'>My Store Headphone
         </Link>
+        
+        
       </p>
       </div>
       <div className='cart'>
+      <Link href='/signIn'>Login</Link>
       <button type="button" className="cart-icon" onClick={() => setShowCart(true)}>
         <AiOutlineShopping />
         <span className='cart-item-qty'>{totalQty}</span>
       </button>
       </div>
       {showCart && <Cart />}
+      
     </div>
+    
   )
 }
 
